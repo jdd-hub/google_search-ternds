@@ -4,7 +4,7 @@ Link to Live Tabluae Dashboard: https://tabsoft.co/3axmz8j
 
 Version two of the Google Serch Trends API. 
 
-After completed the initial testing of the first version, the next step was to create a series of functions in line with the principles of object-oriented programming. 
+After completing the initial testing of the first version, the next step was to create a series of functions in line with the principles of object-oriented programming. 
 
 Initially was created in a linear format as a proof of concept. Later split the code into five main functions. 
 
