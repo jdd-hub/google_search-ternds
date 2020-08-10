@@ -66,7 +66,6 @@ def get_interest_over_time(month):
     elif month == 3:
         time_frame = "today 3-m"
 
-    # The Payload.
     # Define the parameters for the payload.
     pytrends.build_payload(kw_list, cat=0, timeframe=time_frame, geo='GB', gprop='')
 
@@ -137,6 +136,7 @@ def get_related_queries(month):
 # GET DATA FOR INTEREST BY REGION
 
 def get_interest_by_region(month):
+
     # Set value for time_frame.
     month = month
 
@@ -181,6 +181,7 @@ def get_interest_by_region(month):
 
 # CONCAT BOTH DATAFRAMED PAYLOADS
 def concat_payloads(pd_payload_one, pd_payload_two):
+
     # Concat the collection into a single DataFrame.
     # Finally return the processed payload as a DateFrame.
     return pd.concat([pd_payload_one, pd_payload_two])
@@ -288,7 +289,7 @@ pd_ibr_concat.to_csv(directory + filename, index=False, header=True)
 
 # Display conformation for storage operation. The final step of the process.
 print("")
-print("Regional Interest Over Time Payload:")
+print("Stored Regional Interest Over Time Payload:")
 print("Filename: " + filename)
 
 # 4. GET RELATED SEARCH TERMS

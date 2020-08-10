@@ -1,7 +1,7 @@
 """
 Project: pytrends - https://pypi.org/project/pytrends/
 
-Description: Unoffical Google Trends API.
+Description: Unofficial Google Trends API.
 
 provides a simple interface for automating the download of Google Trends data.
 
@@ -36,24 +36,25 @@ pytrends = TrendReq(hl='en-US', tz=0, timeout=(10,25), proxies=['https://34.203.
                     retries=2, backoff_factor=0.1, requests_args={'verify':False})
 
 Timeout: Request to external servers should have a time attached, in case the server
-does not respond in a timely manner.  By defualtm requests do not time out unless a 
+does not respond in a timely manner.  By default requests do not time out unless a 
 timeout is explicitly set. 
 
 Connect: the connect timeout is the number of seconds requests will wait for the client to
 establish a connection to a remote machine call on the socket. Best practice is to set a timeout
 slightly larger than a multiple of 3. This is the default TCP packet retransmission window. 
 
-Read: once the client has connected to the server and sent the HTTP requestm the read timeout is 
+Read: once the client has connected to the server and sent the HTTP request the read timeout is 
 the number of seconds the client will wait for the server to respond. The number of seconds the 
 client will wait between bytes sent from the server. 99.9% of cases, this is the time before the 
 server sends the first byte.  
 
 https://requests.readthedocs.io/en/master/user/advanced/#timeouts
 """
+
 # The keyword list collection can take up to 5 keywords.
 kw_list = ["covid"]
 
-# The Paylod - (Requester).
+# The Payload - (Requester).
 
 
 
@@ -75,7 +76,7 @@ pd_iot_thirty_days.rename(columns={'date': 'Date', 'covid': 'Value'}, inplace=Tr
 pd_iot_thirty_days["Label"] = pd_iot_thirty_days["Value"]
 pd_iot_thirty_days["Range"] = "Last-30-Days"
 
-# Sort pd_iot_thirty_days By Date
+# Sort pd_iot_thirty_days By Date.
 pd_iot_thirty_days.sort_values(by=["Date"], inplace=True, ascending=True)
 
 # Print returned output for the pd_iot_thirty_days payload request.
@@ -101,7 +102,7 @@ pd_iot_ninety_days.rename(columns={'date': 'Date', 'covid': 'Value'}, inplace=Tr
 pd_iot_ninety_days["Label"] = pd_iot_ninety_days["Value"]
 pd_iot_ninety_days["Range"] = "Last-90-Days"
 
-# Sort pd_iot_thirty_days By Date
+# Sort pd_iot_ninety_days By Date
 pd_iot_ninety_days.sort_values(by=["Date"], inplace=True, ascending=True)
 
 # Print returned output for the pd_iot_ninety_days payload request.
@@ -133,9 +134,6 @@ unique_directory = str(year) + str(month) + str(day) + "_" + str(hour) + str(min
 # Create the directory.
 parent_directory = '/Users/julianmuscatdoublesin/PycharmProjects/PythonLibrary/ds_tableau_public/'
 
-# Create a unique directory name to store the payload.
-unique_directory = str(year) + str(month) + str(day) + "_" + str(hour) + str(min) + str(sec)
-
 # Create the path for the new unique directory.
 full_path = os.path.join(parent_directory, unique_directory)
 
@@ -143,9 +141,9 @@ full_path = os.path.join(parent_directory, unique_directory)
 os.mkdir(full_path)
 
 print("")
-print("New Folder Created: "+ full_path)
+print("New Folder Created: " + full_path)
 
-#STORE PAYLOADS RECEIVED AT THE END OF THE DATA PIPELINE. into a CSV file.
+# STORE PAYLOADS RECEIVED AT THE END OF THE DATA PIPELINE into a CSV file.
 filename = 'multiTimeline.csv'
 pd_iot.to_csv(full_path + "/" + filename, index=False, header=True)
 
@@ -177,7 +175,7 @@ pd_ibr_thirty_days["Range"] = "Last-30-Days"
 # Change column order.
 pd_ibr_thirty_days = pd_ibr_thirty_days[['Country', 'Region', 'Value', 'Label', 'Range']]
 
-# Sort pd_iot_thirty_days By Date
+# Sort pd_ibr_thirty_days By Date.
 pd_ibr_thirty_days.sort_values(by=["Value"], inplace=True, ascending=False)
 
 # Print returned output for the pd_ibr_thirty_days payload request.
@@ -207,7 +205,7 @@ pd_ibr_ninety_days["Range"] = "Last-90-Days"
 # Change column order.
 pd_ibr_ninety_days = pd_ibr_ninety_days[['Country', 'Region', 'Value', 'Label', 'Range']]
 
-# Sort pd_iot_thirty_days By Date
+# Sort pd_ibr_ninety_days By Date.
 pd_ibr_ninety_days.sort_values(by=["Value"], inplace=True, ascending=False)
 
 # Print returned output for the pd_ibr_ninety_days payload request.
@@ -225,15 +223,15 @@ pd_ibr = pd.concat(pd_ibr_collection)
 
 # Print returned final output DataFrame.
 print("")
-print("Interest By Region Combined:")
+print("Sub-Region Interest By Region Combined:")
 print(pd_ibr)
 
-#STORE PAYLOADS RECEIVED AT THE END OF THE DATA PIPELINE. into a CSV file.
+# STORE PAYLOADS RECEIVED AT THE END OF THE DATA PIPELINE into a CSV file.
 filename = 'geoMap.csv'
 pd_ibr.to_csv(full_path + "/" + filename, index=False, header=True)
 
 print("")
-print("Stored Interest By Region Payload:")
+print("Stored Sub-Region Interest By Region Payload:")
 print("Filename: " + filename)
 
 
@@ -255,10 +253,10 @@ pd_srch_thirty_days.rename(columns={'query': 'Keyword', 'value': 'Value'}, inpla
 # Add additional columns required for the report.
 pd_srch_thirty_days["Range"] = "Last-30-Days"
 
-# Sort pd_iot_thirty_days By Date
+# Sort pd_srch_thirty_days By Date
 pd_srch_thirty_days.sort_values(by=["Value"], inplace=True, ascending=False)
 
-# Print returned output for the pd_iot_thirty_days payload request.
+# Print returned output for the pd_srch_thirty_days payload request.
 print("")
 print("Top Related Search Terms The Last 30-days:")
 print(pd_srch_thirty_days)
@@ -280,10 +278,10 @@ pd_srch_ninety_days.rename(columns={'query': 'Keyword', 'value': 'Value'}, inpla
 # Add additional columns required for the report.
 pd_srch_ninety_days["Range"] = "Last-90-Days"
 
-# Sort pd_iot_thirty_days By Date
+# Sort pd_srch_thirty_days By Date.
 pd_srch_ninety_days.sort_values(by=["Value"], inplace=True, ascending=False)
 
-# Print returned output for the pd_iot_ninety_days payload request.
+# Print returned output for the pd_srch_ninety_days payload request.
 print("")
 print("Top Related Search Terms The Last 90-days:")
 print(pd_srch_ninety_days)
@@ -301,7 +299,7 @@ print("")
 print("Top Related Search Terms Combined:")
 print(pd_srch)
 
-#STORE PAYLOADS RECEIVED AT THE END OF THE DATA PIPELINE. into a CSV file.
+# STORE PAYLOADS RECEIVED AT THE END OF THE DATA PIPELINE into a CSV file.
 filename = 'relatedQueries.csv'
 pd_srch.to_csv(full_path + "/" + filename, index=False, header=True)
 
