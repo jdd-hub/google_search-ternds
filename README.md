@@ -1,6 +1,6 @@
 # google_search_trends
 
-Link to Live Tabluae Dashboard: https://tabsoft.co/3axmz8j
+Link to Live Tabluea Dashboard: https://tabsoft.co/3axmz8j
 
 Version two of the Google Search Trends API. 
 
@@ -18,7 +18,7 @@ The purpose of this function is to retrieve the interest over time, a time-serie
 
 3. get_related_queries(month):
 
-The purpose of this function is to retrieve search terms related to the main keyword specified in the keyword collection. Either with a time frame of 1 or 2 months, the time frame is specified though the month parameter. The API returns the data in the format of a data dictionary than is converted to a DataFrame. The dictionary comes with top keywords and rising keywords. The final DataFrame consists of top keywords portion of the dictionary.
+The purpose of this function is to retrieve search terms related to the main keyword specified in the keyword collection. Either with a time frame of 1 or 3 months. The time frame is specified though the month parameter. The API returns the data in the format of a data dictionary than is converted to a DataFrame. The dictionary comes with top keywords and rising keywords. The final DataFrame consists of top keywords portion of the dictionary.
 
 4. get_interest_by_region(month): 
 
@@ -40,6 +40,6 @@ The time frame is determined by the month parameters as per below, returns the f
 Besides specifying the time frame, we also need to specify the geography through the geo parameter. 
 pytrends.build_payload(kw_list, cat=0, timeframe=time_frame, geo='GB', gprop='')
 
-For this particular project, each of the get_ functions is exected twice. Once to get 30-days of data and a second time to get 90-days of data. Both DataFrames feed into to the concat_payloads() with the final output stored in a CSV file. 
+For this particular project, each of the get_ functions is executed twice. Once to get 30-days of data and a second time to get 90-days of data. Both DataFrames feed into to the concat_payloads() with the final output stored in a CSV file. 
 
-The code itself, well commented with each step of the process is printed out on screen for verification along with other specific actions taken such as creating the directory and saving the payloads to CSV file. 
+The code itself, well commented with each step of the process printed out on screen for verification along with other specific actions taken such as creating the directory and saving the payloads to CSV file. 
