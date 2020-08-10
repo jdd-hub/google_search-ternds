@@ -14,7 +14,7 @@ The purpose of this function is to create a unique directory based on the curren
 
 2. get_interest_over_time(month):
 
-The purpose of this function is to retrieve the interest over time, a time-series data for the main keyword specified in the keyword collection. Either with a time frame of 1 or 2 months. The time frame is specified though the month parameter. The API returns the data in the format of a DataFrame.
+The purpose of this function is to retrieve the interest over time, a time-series data for the main keyword specified in the keyword collection. Either with a time frame of 1 or 3 months. The time frame is specified though the month parameter. The API returns the data in the format of a DataFrame.
 
 3. get_related_queries(month):
 
@@ -22,7 +22,7 @@ The purpose of this function is to retrieve search terms related to the main key
 
 4. get_interest_by_region(month): 
 
-The purpose of the function is to retrieve interest by region within the specified geography for the main keyword specified in the keyword collection. Either with a time frame of 1 or 2 months. The time frame is specified though the month parameter. The API returns the data in the format of a DataFrame.
+The purpose of the function is to retrieve interest by region within the specified geography for the main keyword specified in the keyword collection. Either with a time frame of 1 or 3 months. The time frame is specified though the month parameter. The API returns the data in the format of a DataFrame.
 
 5. concat_payloads(pd_payload_one, pd_payload_two):
 
