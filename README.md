@@ -18,7 +18,7 @@ The purpose of this function is to retrieve the interest over time, a time-serie
 
 3. get_related_queries(month):
 
-The purpose of this function is to retrieve search terms related to the main keyword specified in the keyword collection. Either with a time frame of 1 or 2 months, the time frame is specified though the month parameter. The API returns the data in the format of a data dictionary than is converted to a DataFrame. The dictionary comes with top keyword and rising keywords. The final DataFrame consists of top keywords portion of the dictionary.
+The purpose of this function is to retrieve search terms related to the main keyword specified in the keyword collection. Either with a time frame of 1 or 2 months, the time frame is specified though the month parameter. The API returns the data in the format of a data dictionary than is converted to a DataFrame. The dictionary comes with top keywords and rising keywords. The final DataFrame consists of top keywords portion of the dictionary.
 
 4. get_interest_by_region(month): 
 
