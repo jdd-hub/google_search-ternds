@@ -2,7 +2,7 @@
 
 Link to Live Tabluae Dashboard: https://tabsoft.co/3axmz8j
 
-Version two of the Google Serch Trends API. 
+Version two of the Google Search Trends API. 
 
 After completing the initial testing of the first version, the next step was to create a series of functions in line with the principles of object-oriented programming. 
 
